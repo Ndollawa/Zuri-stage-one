@@ -31,8 +31,8 @@ app.get("/api", (req, res, next) => {
   // Get the current day of the week in full format (e.g., Monday).
   const currentDay = format(new Date(), "EEEE");
 
-  // Get the current UTC time in ISO 8601 format.
-  const utcTime = format(new Date(), "yyyy-MM-dd'T'HH:mm:ssxxx");
+  // Get the current UTC time in the desired format ("2023-08-21T15:04:05Z").
+  const utcTime = new Date().toISOString().slice(0, -5) + "Z";
 
   // Validate UTC time within a +/-2 minute window.
   const currentTime = new Date(utcTime);
